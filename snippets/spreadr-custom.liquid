@@ -1,0 +1,294 @@
+
+{% assign spreadr_comtag = "" %}
+{% assign spreadr_intag = "" %}
+{% assign spreadr_uktag = "" %}
+{% assign spreadr_detag = "" %}
+{% assign spreadr_frtag = "" %}
+{% assign spreadr_estag = "" %}
+{% assign spreadr_catag = "" %}
+{% assign spreadr_cntag = "" %}
+{% assign spreadr_ittag = "" %}
+{% assign spreadr_jptag = "" %}
+{% assign spreadr_mxtag = "" %}
+{% assign spreadr_autag = "" %}
+{% assign spreadr_brtag = "" %}
+{% assign spreadr_button_text = "View on Amazon" %}
+{% assign enable_spreadr = false %}
+{% assign enable_spreadr_cart = true %}
+{% assign spreadr_userid = 40849 %}
+{% assign isLocalized = shop.metafields.global["spreadr-localize"] | escape %}
+
+  {% if product.metafields.global["spreadr-tag"] == "spreadr-affiliate" %}
+    {% assign enable_spreadr = true %}
+    {% for tag in product.tags %}
+          {% if tag == "spreadr-hidden" %}
+              {% assign enable_spreadr = false %}
+          {% endif %}
+          {% if tag == "spreadr-cart-hidden" %}
+              {% assign enable_spreadr_cart = false %}
+          {% endif %}
+    {% endfor %}
+  {% endif %}
+
+{% if enable_spreadr == true %}
+
+  {% case product.metafields.global["spreadr-region"] %}
+    {% when "ca" %}
+      {% assign spreadr_region_tag = spreadr_catag %}
+    {% when "in" %}
+      {% assign spreadr_region_tag = spreadr_intag %}
+    {% when "de" %}
+      {% assign spreadr_region_tag = spreadr_detag %}
+    {% when "fr" %}
+      {% assign spreadr_region_tag = spreadr_frtag %}
+    {% when "es" %}
+      {% assign spreadr_region_tag = spreadr_estag %}
+   {% when "co.uk" %}
+        {% assign spreadr_region_tag = spreadr_uktag %}
+    {% when "cn" %}
+      {% assign spreadr_region_tag = spreadr_cntag %}
+    {% when "it" %}
+      {% assign spreadr_region_tag = spreadr_ittag %}
+    {% when "co.jp" %}
+      {% assign spreadr_region_tag = spreadr_jptag %}
+    {% when "com.mx" %}
+      {% assign spreadr_region_tag = spreadr_mxtag %}
+    {% when "com.au" %}
+      {% assign spreadr_region_tag = spreadr_autag %}
+    {% when "com.br" %}
+      {% assign spreadr_region_tag = spreadr_brtag %}
+    {% else %}
+      {% assign spreadr_region_tag = spreadr_comtag %}
+  {% endcase %}
+
+  {% if product.metafields.global["spreadr-url"] contains "&tag" %}
+  {% if product.metafields.global["spreadr-url"] contains spreadr_region_tag %}
+      {% assign spreadr_redirect_url = product.metafields.global["spreadr-url"] %}
+  {% else %}
+      {% assign spreadrparameters = product.metafields.global["spreadr-url"] | split: "&" %}
+
+      {% for spreadrparameter in spreadrparameters %}
+          {% if spreadrparameter contains "tag" %}
+
+              {% assign spreadrtagtoreplace = spreadrparameter %}
+          {% endif %}
+      {% endfor %}
+
+      {% assign spreadrtag = "tag=" | append: spreadr_region_tag %}
+      {% assign spreadr_redirect_url = product.metafields.global["spreadr-url"] | replace: spreadrtagtoreplace, spreadrtag %}
+  
+  {% endif %}
+
+{% else %}
+
+  {% assign spreadr_redirect_url = product.metafields.global["spreadr-url"] | append: "?tag=" | append: spreadr_region_tag %}
+
+{% endif %}
+
+    {% assign spreadr_link_id = "SpreadrLink-" | append: product.id %}
+
+    {% assign spreadr_title = product.metafields.global["spreadr-title"] | escape %}
+    {% if spreadr_title == blank %}
+        {% assign spreadr_title = product.title  | escape %}
+    {% endif %}
+
+        <input type="hidden" id="SpreadrHidden-{{product.id}}" name="spreadr_hidden" class="spreadr_hidden"
+       data-redirect-url="{{product.metafields.global["spreadr-url"] | escape }}"
+       data-spreadr-tag="{{product.metafields.global["spreadr-tag"] | escape }}"
+       data-region="{{product.metafields.global["spreadr-region"] | escape }}"
+       data-product-tag="{{product.tags | escape }}"
+       data-product="{{product.id  | escape}}"
+       data-brand = "{{product.metafields.global["spreadr-brand"] | escape }}"
+       data-title = "{{spreadr_title}}"
+    >
+
+<script>
+
+spreadrdefer{{product.id}}();
+
+    //wait for jquery to load
+    function spreadrdefer{{product.id}}(method) {
+    if (window.jQuery) {
+        spreadrjQready{{product.id}}();
+    } else {
+        setTimeout(function() { spreadrdefer{{product.id}}(method) }, 50);
+    }
+}
+
+  function spreadrjQready{{product.id}}()
+  {
+        //if analytics is ON
+    if(0)
+        {
+          //attach click event listener
+          $(document).on("click", "#SpreadrLink-{{product.id}}", function(){
+                if(typeof ga !== "undefined")
+                 {
+                   ga("send", "event", { eventCategory: "Spreadr Link", eventAction: "Click", eventLabel: document.getElementById("SpreadrLink-{{product.id}}").href});
+                 }
+          });
+        }
+
+
+        if(0)
+       {
+         $(document).on("click", "#SpreadrLink-{{product.id}}", function(){
+                if(typeof fbq !== "undefined") {
+
+                    var spreadrRedirectURL = document.getElementById("SpreadrLink-{{product.id}}").href;
+                    fbq("trackCustom", "SpreadrClick", {Amazonlink: spreadrRedirectURL});
+                  }
+
+          });
+
+
+
+       }
+  }
+
+ var notfirstrun;
+
+ //if geo localize is enabled
+if(0)
+{
+    if(notfirstrun != "false")
+    {
+        if (window.addEventListener) {
+            window.addEventListener("load", findlocation_custom, false)
+        } else {
+            window.attachEvent("onload", findlocation_custom)
+        }
+        notfirstrun = "false";
+    }
+}
+
+ function findlocation_custom()
+ {
+    jQuery.ajax({
+        url: "//extreme-ip-lookup.com/json/",
+        type: "POST",
+        dataType: "jsonp",
+        success: function(location) {
+            if(location.countryCode == undefined){
+                 jQuery.ajax({
+                    url: "//api.wipmania.com/json/",
+                    type: "POST",
+                    dataType: "jsonp",
+                    success: function(location) {
+                      localize_custom(location.address.country_code.toLowerCase());
+                    }
+                });
+            } else {
+                localize_custom(location.countryCode.toLowerCase());
+            }
+
+        }
+    });
+ }
+
+function localize_custom(country_code)
+{
+      var arrLinks = document.getElementsByName("SpreadrLink");
+      for (var i = 0, j = arrLinks.length; i < j; i++) {
+
+        var spid = arrLinks[i].id;
+        spid = spid.substr(12,spid.length);
+
+        if(spid != "")
+        {
+            var hiddenf = document.getElementById("SpreadrHidden-"+spid);
+
+            switch(country_code) {
+              case "us":
+                  if(hiddenf.getAttribute("data-region") != "com")
+                  {
+                    arrLinks[i].href = "http://amazon.com/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_comtag}}";
+                  }
+                  break;
+              case "ca":
+                  if(hiddenf.getAttribute("data-region") != "ca")
+                  {
+                    arrLinks[i].href = "http://amazon.ca/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_catag}}";
+                  }
+                  break;
+              case "gb":
+              case "ie":
+                  if(hiddenf.getAttribute("data-region") != "co.uk")
+                  {
+                    arrLinks[i].href = "http://amazon.co.uk/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_uktag}}";
+                  }
+                  break;
+              case "in":
+                  if(hiddenf.getAttribute("data-region") != "in")
+                  {
+                    arrLinks[i].href = "http://amazon.in/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_intag}}";
+                  }
+                  break;
+              case "de":
+                  if(hiddenf.getAttribute("data-region") != "de")
+                  {
+                    arrLinks[i].href = "http://amazon.de/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_detag}}";
+                  }
+                  break;
+              case "fr":
+                  if(hiddenf.getAttribute("data-region") != "fr")
+                  {
+                    arrLinks[i].href = "http://amazon.fr/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_frtag}}";
+                  }
+                  break;
+               case "es":
+                  if(hiddenf.getAttribute("data-region") != "es")
+                  {
+                    arrLinks[i].href = "http://amazon.es/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_estag}}";
+                  }
+                  break;
+              case "it":
+                  if(hiddenf.getAttribute("data-region") != "it")
+                  {
+                    arrLinks[i].href = "http://amazon.it/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_ittag}}";
+                  }
+                  break;
+               case "mx":
+                  if(hiddenf.getAttribute("data-region") != "com.mx")
+                  {
+                    arrLinks[i].href = "http://amazon.com.mx/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_mxtag}}";
+                  }
+                  break;
+                case "au":
+                  if(hiddenf.getAttribute("data-region") != "com.au")
+                  {
+                    arrLinks[i].href = "http://amazon.com.au/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_autag}}";
+                  }
+                  break;
+                case "br":
+                  if(hiddenf.getAttribute("data-region") != "com.br")
+                  {
+                    arrLinks[i].href = "http://amazon.com.br/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_brtag}}";
+                  }
+                  break;
+                case "jp":
+                  if(hiddenf.getAttribute("data-region") != "co.jp")
+                  {
+                    arrLinks[i].href = "http://amazon.co.jp/s/?field-keywords=" + encodeURIComponent(hiddenf.getAttribute("data-title")) + "&tag={{spreadr_brtag}}";
+                  }
+                  break;
+              default:
+                  break;
+              }
+          }
+      }
+
+      {% if spreadr_userid < 2285 and isLocalized == blank %}
+      //remove after initial few days - only for spreadr custom
+        jQuery.ajax({
+            url: "https://cron.spreadr.co/updateforlocalize/{{spreadr_userid}}",
+            type: "GET",
+            dataType: "string",
+            success: function(result) {
+              console.log("result - "+result);
+            }
+        });
+      {% endif %}
+  }
+</script>
+{% endif %}

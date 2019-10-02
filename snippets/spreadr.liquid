@@ -1,0 +1,359 @@
+{% if template contains "product" and product.metafields.global["spreadr-tag"] == "spreadr-affiliate" %}
+        
+        {% assign spreadr_comtag = "" %}
+{% assign spreadr_intag = "" %}
+{% assign spreadr_uktag = "" %}
+{% assign spreadr_detag = "" %}
+{% assign spreadr_frtag = "" %}
+{% assign spreadr_estag = "" %}
+{% assign spreadr_catag = "" %}
+{% assign spreadr_cntag = "" %}
+{% assign spreadr_ittag = "" %}
+{% assign spreadr_jptag = "" %}
+{% assign spreadr_mxtag = "" %}
+{% assign spreadr_autag = "" %}
+{% assign spreadr_brtag = "" %}
+
+
+  
+
+
+
+  {% case product.metafields.global["spreadr-region"] %}
+    {% when "ca" %}
+      {% assign spreadr_region_tag = spreadr_catag %}
+    {% when "in" %}
+      {% assign spreadr_region_tag = spreadr_intag %}
+    {% when "de" %}
+      {% assign spreadr_region_tag = spreadr_detag %}
+    {% when "fr" %}
+      {% assign spreadr_region_tag = spreadr_frtag %}
+    {% when "es" %}
+      {% assign spreadr_region_tag = spreadr_estag %}
+   {% when "co.uk" %}
+        {% assign spreadr_region_tag = spreadr_uktag %}
+    {% when "cn" %}
+      {% assign spreadr_region_tag = spreadr_cntag %}
+    {% when "it" %}
+      {% assign spreadr_region_tag = spreadr_ittag %}
+    {% when "co.jp" %}
+      {% assign spreadr_region_tag = spreadr_jptag %}
+    {% when "com.mx" %}
+      {% assign spreadr_region_tag = spreadr_mxtag %}
+    {% when "com.au" %}
+      {% assign spreadr_region_tag = spreadr_autag %}
+    {% when "com.br" %}
+      {% assign spreadr_region_tag = spreadr_brtag %}
+    {% else %}
+      {% assign spreadr_region_tag = spreadr_comtag %}
+  {% endcase %}
+
+  
+        {% if product.metafields.global["spreadr-url"] contains "&tag" %}
+    {% if product.metafields.global["spreadr-url"] contains spreadr_region_tag %}
+		{% assign spreadr_redirect_url = product.metafields.global["spreadr-url"] %}
+    {% else %}
+        {% assign spreadrparameters = product.metafields.global["spreadr-url"] | split: "&" %}
+
+        {% for spreadrparameter in spreadrparameters %}
+            {% if spreadrparameter contains "tag" %}
+
+                {% assign spreadrtagtoreplace = spreadrparameter %}
+            {% endif %}
+        {% endfor %}
+
+		{% assign spreadrtag = "tag=" | append: spreadr_region_tag %}
+		{% assign spreadr_redirect_url = product.metafields.global["spreadr-url"] | replace: spreadrtagtoreplace, spreadrtag %}
+    
+	{% endif %}
+
+{% else %}
+
+    {% assign spreadr_redirect_url = product.metafields.global["spreadr-url"] | append: "?tag=" | append: spreadr_region_tag %}
+
+{% endif %}
+
+
+
+ <button id="SpreadrLink" type="button" style="display:none;" name="SpreadrLink" class="btn"
+                    onclick="SpreadrButtonClick()"
+                    data-comtag=""
+                    data-intag=""
+                    data-catag=""
+                    data-uktag=""
+                    data-detag=""
+                    data-frtag=""
+                    data-estag=""
+                    data-cntag=""
+                    data-ittag=""
+                    data-jptag=""
+                    data-mxtag=""
+                    data-autag=""
+                    data-brtag=""
+                    data-redirect-url="{{spreadr_redirect_url | escape }}"
+                    data-spreadr-tag="{{product.metafields.global["spreadr-tag"] | escape }}"
+                    data-region="{{product.metafields.global["spreadr-region"] | escape }}"
+                    data-product-tag="{{product.tags | escape }}"
+                    data-spreadr-userid="40849"
+                    >
+              <span id="SpreadrLinkText">View on Amazon</span>
+</button>
+
+<script>
+var spreadrRedirectURL;
+var SpreadrWrapper = document.getElementById("SpreadrLink");
+setTimeout(function waitSpreadrWrapper() {
+    if (document.body.contains(SpreadrWrapper)) {
+        SpreadrInit();
+    } else {
+        setTimeout(waitSpreadrWrapper, 100);
+    }
+}, 100);
+
+function SpreadrInit(){
+    var spreadrtags = document.getElementById("SpreadrLink").getAttribute("data-spreadr-tag");
+    var findString = "spreadr-affiliate";
+
+   if((spreadrtags !== undefined) && (spreadrtags !== null) && (spreadrtags !== ""))
+    {
+
+       var spreadrtagindex = spreadrtags.indexOf(findString);
+
+       if (spreadrtagindex > -1)
+        {
+
+          var hiddentag = document.getElementById("SpreadrLink").getAttribute("data-product-tag");
+           var findText = "spreadr-hidden";
+
+           if((hiddentag !== undefined) && (hiddentag !== null) && (hiddentag !== ""))
+            {
+              var hiddentagindex = hiddentag.indexOf(findText);
+
+               if (hiddentagindex < 0)
+               {
+                    SpreadrShowButton();
+
+               }
+
+            }
+            else
+            {
+              SpreadrShowButton();
+            }
+
+        }
+    }
+}
+
+
+
+function SpreadrShowButton()
+{
+  var Spreadraddtocartform = document.querySelector("form[action='/cart/add']");
+  var Spreadraddtocartbutton = Spreadraddtocartform.querySelector("[type='submit']");
+  var Spreadrlinkbutton = document.getElementById("SpreadrLink");
+
+//code for special themes
+  if((Spreadraddtocartbutton === undefined) || (Spreadraddtocartbutton === null) || (Spreadraddtocartbutton === ""))
+  {
+    Spreadraddtocartbutton = document.getElementById("add-to-cart");
+    if((Spreadraddtocartbutton === undefined) || (Spreadraddtocartbutton === null) || (Spreadraddtocartbutton === ""))
+    {
+        Spreadraddtocartbutton = document.getElementById("product-add-to-cart");
+    }
+    else
+    {
+        Spreadraddtocartbutton.classList.remove("add-to-cart");
+    }
+  }
+
+  Spreadrlinkbutton.className += " " + Spreadraddtocartbutton.classList;
+
+  Spreadraddtocartbutton.style.display = "none";
+  Spreadrlinkbutton.style.display = "block";
+
+    //remove dynamic payment button
+    //$( ".shopify-payment-button" ).remove();
+    var shopifypaymentbutton = document.getElementsByClassName("shopify-payment-button");
+    while(shopifypaymentbutton.length > 0){
+        shopifypaymentbutton[0].parentNode.removeChild(shopifypaymentbutton[0]);
+    }
+
+
+
+
+    setInterval(function () {
+        Spreadraddtocartbutton.style.display = "none";
+        Spreadrlinkbutton.style.display = "block";
+
+        //remove dynamic payment button
+
+        var shopifypaymentbutton = document.getElementsByClassName("shopify-payment-button");
+        while(shopifypaymentbutton.length > 0){
+            shopifypaymentbutton[0].parentNode.removeChild(shopifypaymentbutton[0]);
+        }
+
+    }, 4000);
+
+    SetAffiliateTags();
+
+    //if geo-localization activated
+    if(0)
+    {
+      if (window.addEventListener)
+      {
+          window.addEventListener("load", findlocation, false)
+      } else {
+          window.attachEvent("onload", findlocation)
+      }
+    }
+}
+
+function SetAffiliateTags()
+{
+    spreadrRedirectURL = document.getElementById("SpreadrLink").getAttribute("data-redirect-url");
+}
+
+function SpreadrButtonClick()
+{
+    window.open(spreadrRedirectURL);
+
+    //if analytics is ON
+      if(0)
+      {
+        if(typeof ga !== "undefined") {
+             ga("send", "event", { eventCategory: "Spreadr Link", eventAction: "Click", eventLabel:spreadrRedirectURL});
+          }
+      }
+
+       if(0)
+       {
+        if(typeof fbq !== "undefined") {
+            fbq("trackCustom", "SpreadrClick", {Amazonlink: spreadrRedirectURL});
+          }
+       }
+
+
+}
+
+
+function findlocation()
+{
+    jQuery.ajax({
+        url: "//extreme-ip-lookup.com/json/",
+        type: "POST",
+        dataType: "jsonp",
+        success: function(location) {
+            if(location.countryCode == undefined){
+                 jQuery.ajax({
+                    url: "//api.wipmania.com/json/",
+                    type: "POST",
+                    dataType: "jsonp",
+                    success: function(location) {
+                      localize(location.address.country_code.toLowerCase());
+                    }
+                });
+            } else {
+                localize(location.countryCode.toLowerCase());
+            }
+
+        }
+    });
+
+}
+
+function localize(country_code)
+{
+    var spreadr_region = "{{ product.metafields.global["spreadr-region"] }}";
+
+    switch(country_code) {
+    case "us":
+        if(spreadr_region != "com")
+        {
+          convertlink("com","");
+        }
+        break;
+    case "ca":
+        if(spreadr_region != "ca")
+        {
+          convertlink("ca","");
+        }
+        break;
+    case "gb":
+    case "ie":
+        if(spreadr_region != "co.uk")
+        {
+          convertlink("co.uk","");
+        }
+        break;
+    case "in":
+        if(spreadr_region != "in")
+        {
+          convertlink("in","");
+        }
+        break;
+    case "de":
+        if(spreadr_region != "de")
+        {
+          convertlink("de","");
+        }
+        break;
+    case "fr":
+        if(spreadr_region != "fr")
+        {
+          convertlink("fr","");
+        }
+        break;
+    case "es":
+        if(spreadr_region != "es")
+        {
+          convertlink("es","");
+        }
+        break;
+    case "it":
+        if(spreadr_region != "it")
+        {
+          convertlink("it","");
+        }
+        break;
+     case "mx":
+        if(spreadr_region != "com.mx")
+        {
+          convertlink("com.mx","");
+        }
+        break;
+    case "jp":
+        if(spreadr_region != "co.jp")
+        {
+          convertlink("co.jp","");
+        }
+        break;
+    case "au":
+        if(spreadr_region != "com.au")
+        {
+          convertlink("com.au","");
+        }
+        break;
+    case "br":
+        if(spreadr_region != "com.br")
+        {
+          convertlink("com.br","");
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+ function convertlink(spreadr_region, aftag)
+ {
+    var keywords = "{{ product.metafields.global["spreadr-title"] | url_encode }}";
+    if(keywords == "" || keywords.length <= 0)
+    {
+      keywords = "{{ product.title | url_encode }}";
+    }
+    spreadrRedirectURL = "http://amazon." + spreadr_region + "/s/?field-keywords=" + keywords + "&tag=" + aftag;
+ }
+</script>
+
+{% endif %}
