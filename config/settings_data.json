@@ -191,7 +191,7 @@
           "1486649146314": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/A_Queen_Knows.jpg",
+              "image": "shopify:\/\/shop_images\/international-money.jpg",
               "alignment": "center center",
               "title": "A Queen Knows",
               "button": "About",
@@ -240,11 +240,11 @@
           "1569905058097"
         ],
         "settings": {
-          "slider_height": "full",
-          "center_cta": true,
-          "show_overlay": true,
+          "slider_height": "adapt",
+          "center_cta": false,
+          "show_overlay": false,
           "overlay_color": "rgba(0,0,0,0)",
-          "overlay_text": "#b0611c",
+          "overlay_text": "#1950ac",
           "overlay_opacity": 71
         }
       },
