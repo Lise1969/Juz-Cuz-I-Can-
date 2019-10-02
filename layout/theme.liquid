@@ -86,6 +86,7 @@
 {% include 'alireviews_core' %} 
  
   {{ 'custom-css-shopify.css' | asset_url | stylesheet_tag }}
+  {% include 'judgeme_core' %}
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{% if request.page_type != blank %}{{ request.page_type | handle }}{% else %}none{% endif %} data-animations">

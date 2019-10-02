@@ -85,6 +85,12 @@
           {% endif %}
 
           <h1 class="product__title h2 text-center" itemprop="name">{{ product.title }}</h1>
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  <div class="text-center">
+    {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true %}
+  </div>
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+
           <p class="product__price text-center{% if current_variant_sale %} product__price--sale{% endif %}" data-product-price aria-live="polite">
 
             <span class="product__sale-price-label visually-hidden">{{ 'products.product.sale_price' | t }}</span>
@@ -280,7 +286,13 @@
   Product Data
   ------------------------------------------------------------------------------
   {% endcomment %}
-  <script type="application/json" data-product-json>
+  
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  <div class="page-width">
+    {% include 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true %}
+  </div>
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+<script type="application/json" data-product-json>
     {{ product | json }}
   </script>
 </div>

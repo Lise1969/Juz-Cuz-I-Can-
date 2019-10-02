@@ -11,6 +11,10 @@
       {% endif %}
 
       <h3 class="card__name h4">{{ product.title }}</h3>
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true %}
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+
 
       {% if product.available %}
         <div class="card__price">
