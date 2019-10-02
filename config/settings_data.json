@@ -50,7 +50,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "icon": "bag",
+          "icon": "cart",
           "logo": "",
           "logo_max_height": "15",
           "enable_transparent": true,
@@ -121,48 +121,17 @@
         "type": "feature-row",
         "settings": {
           "size": "large",
-          "background_color": "#faf9f6",
+          "background_color": "#9f927f",
           "image": "shopify:\/\/shop_images\/Juz_Cuz_I_Can_Cover_Text.jpg",
-          "image_crop": "none",
-          "alignment": "top left",
+          "image_crop": "circle",
+          "alignment": "top center",
           "title": "In Horor of all Queens",
           "text": "<p>A change of mindset regarding self worth. The social value of women and that view structures our personal lifestyle.<\/p>",
-          "use_second_button": false,
-          "button_label": "",
-          "button_link": "shopify:\/\/blogs\/news",
+          "use_second_button": true,
+          "button_label": "Talk to me",
+          "button_link": "http:\/\/Blog.queensbadgeofhonor.juzcuzican.store.juzcuzican.com",
           "desktop_layout": "left",
           "mobile_layout": "top"
-        }
-      },
-      "1478027260401": {
-        "type": "quotes",
-        "disabled": true,
-        "blocks": {
-          "1478027260401-0": {
-            "type": "quote",
-            "settings": {
-              "heading": "",
-              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.<\/p>",
-              "author": "Author's name"
-            }
-          },
-          "1478027389453": {
-            "type": "quote",
-            "settings": {
-              "heading": "",
-              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.<\/p>",
-              "author": "Author's name"
-            }
-          }
-        },
-        "block_order": [
-          "1478027260401-0",
-          "1478027389453"
-        ],
-        "settings": {
-          "color_bg": "#000000",
-          "color_text": "#ffffff",
-          "autoplay_speed": "6000"
         }
       },
       "product-template": {
@@ -193,7 +162,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/international-money.jpg",
               "alignment": "center center",
-              "title": "A Queen Knows",
+              "title": "A Queen Knows her WORTH",
               "button": "About",
               "cta": "View more",
               "cta_link": ""
@@ -242,10 +211,10 @@
         "settings": {
           "slider_height": "adapt",
           "center_cta": false,
-          "show_overlay": false,
-          "overlay_color": "rgba(0,0,0,0)",
-          "overlay_text": "#1950ac",
-          "overlay_opacity": 71
+          "show_overlay": true,
+          "overlay_color": "#eef0ed",
+          "overlay_text": "#296f1b",
+          "overlay_opacity": 44
         }
       },
       "1486649811524": {
@@ -273,10 +242,39 @@
       },
       "1569905819743": {
         "type": "featured-product",
+        "disabled": true,
         "settings": {
           "featured_product": "autumn-new-men-hoodies-fleece-sweater-pullover-sweatshirt-mens-3d-dallas-cowboys-football-team-print-hoodie-men-couple-sweater",
           "layout": "square",
           "image_size": "cover",
+          "background_color": "transparent",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": true,
+          "enable_payment_button": true,
+          "show_share_buttons": true
+        }
+      },
+      "1569992687371": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "yanluu-stainless-steel-18k-gold-plated-bitch-words-necklace-18inch",
+          "layout": "square",
+          "image_size": "cover",
+          "background_color": "#000000",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": true,
+          "enable_payment_button": true,
+          "show_share_buttons": true
+        }
+      },
+      "1569992962182": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "good-morning-you-sexy-bitch-by-inkponyart-coffee-mug-tea-cup-great-gift",
+          "layout": "square",
+          "image_size": "contain",
           "background_color": "transparent",
           "show_quantity_selector": true,
           "show_variant_labels": true,
@@ -289,9 +287,10 @@
     "content_for_index": [
       "1478026923193",
       "1476381402840",
-      "1478027260401",
       "1486649811524",
-      "1569905819743"
+      "1569905819743",
+      "1569992687371",
+      "1569992962182"
     ]
   },
   "presets": {
