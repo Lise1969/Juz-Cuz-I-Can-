@@ -22,13 +22,13 @@
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "social_facebook_link": "",
-    "social_twitter_link": "",
-    "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/juzcuzican2016",
+    "social_twitter_link": "https:\/\/twitter.com\/jhaquie_webb",
+    "social_pinterest_link": "https:\/\/in.pinterest.com\/tarlisen\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/iamab.i.t.c.h.12231969\/",
     "social_snapchat_link": "",
     "social_tumblr_link": "",
-    "social_youtube_link": "",
+    "social_youtube_link": "UCRkTZLDrKDm0vmgYdT_uFhA",
     "social_vimeo_link": "",
     "favicon": "",
     "checkout_header_image": "",
@@ -51,19 +51,19 @@
         "type": "header",
         "settings": {
           "icon": "cart",
-          "logo": "",
-          "logo_max_height": "15",
+          "logo": "shopify:\/\/shop_images\/margaritas-on-the-beach.jpg",
+          "logo_max_height": "72",
           "enable_transparent": true,
           "transparent_logo": "",
           "transparent_text_color": "#ffffff",
           "primary_navigation": "main-menu",
           "secondary_navigation": "footer",
-          "show_social_icons": false,
+          "show_social_icons": true,
           "show_announcement": false,
           "home_page_only": true,
-          "announcement_text": "Announce something here",
+          "announcement_text": "",
           "announcement_link": "",
-          "announcement_icon": "checkmark",
+          "announcement_icon": "none",
           "announcement_color_bg": "#7796a8",
           "announcement_color_text": "#fff"
         }
@@ -100,7 +100,7 @@
           "show_overlay": true,
           "overlay_color": "#000000",
           "overlay_text": "#ffffff",
-          "overlay_opacity": 30
+          "overlay_opacity": 60
         }
       },
       "collection-template": {
@@ -137,9 +137,9 @@
       "product-template": {
         "type": "product-template",
         "settings": {
-          "show_quantity_selector": false,
+          "show_quantity_selector": true,
           "show_variant_labels": true,
-          "show_vendor": false,
+          "show_vendor": true,
           "hide_variant_images": true,
           "enable_payment_button": true,
           "show_share_buttons": true
@@ -282,6 +282,30 @@
           "enable_payment_button": true,
           "show_share_buttons": true
         }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_spacing": true,
+          "show_vendor": true
+        }
+      },
+      "1570669558807": {
+        "type": "featured-blog",
+        "settings": {
+          "title": "Blog",
+          "blog": "where-are-all-my-b-i-t-c-hs-at",
+          "post_limit": 3,
+          "grid_style": "collage",
+          "blog_show_date": true,
+          "blog_show_author": true,
+          "blog_show_image": true,
+          "blog_show_excerpt": true,
+          "show_view_all": false,
+          "use_second_button": false
+        }
       }
     },
     "content_for_index": [
@@ -290,7 +314,8 @@
       "1486649811524",
       "1569905819743",
       "1569992687371",
-      "1569992962182"
+      "1569992962182",
+      "1570669558807"
     ]
   },
   "presets": {

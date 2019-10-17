@@ -30,12 +30,12 @@ data-auto-install='{% if auto_install != nil %}{{ auto_install }}{% else %}false
 {% if widget_type == 'judgeme_floating_tab' %}
 <section class='jdgm-widget jdgm-revs-tab'>
   {% assign jm_metafields = shop.metafields.judgeme %}
-  <div class='jdgm-revs-tab-btn btn' position="none">★ Judge.me Reviews</div>
+  <div class='jdgm-revs-tab-btn btn' position="none" tabindex="0" aria-label="Click to open Judge.me floating reviews tab">★ Judge.me Reviews</div>
   <div class='jdgm-revs-tab__header'>
     <a class='jdgm-close-ico'></a>
     <h3 class='jdgm-revs-tab__title'>Let customers speak for us</h3>
     <a href='/pages/reviews'>
-      <div data-score='{{ jm_metafields.all_reviews_rating }}' class='jdgm-all-reviews-rating'></div>{{ jm_metafields.all_reviews_count }} reviews
+      <div data-score='{{ jm_metafields.all_reviews_rating }}' class='jdgm-all-reviews-rating' tabindex='0' aria-label='Average rating is {{ jm_metafields.all_reviews_rating }}'></div>{{ jm_metafields.all_reviews_count }} reviews
     </a>
   </div>
   {{ jm_metafields.reviews_tab }}
@@ -49,7 +49,7 @@ data-auto-install='{% if auto_install != nil %}{{ auto_install }}{% else %}false
   <div class="jdgm-carousel-title-and-link">
     <h2 class='jdgm-carousel-title'>Let customers speak for us</h2>
     <span class="jdgm-all-reviews-rating-wrapper" href="javascript:void(0)">
-      <span style="display:block"  data-score='{{ shop.metafields.judgeme.all_reviews_rating }}' class='jdgm-all-reviews-rating'></span>
+      <span style="display:block"  data-score='{{ shop.metafields.judgeme.all_reviews_rating }}' class='jdgm-all-reviews-rating' aria-label='{{ shop.metafields.judgeme.all_reviews_rating }} stars' tabindex='0'></span>
       <span style="display: block">
         from {{ shop.metafields.judgeme.all_reviews_count }} reviews
       </span>

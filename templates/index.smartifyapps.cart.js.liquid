@@ -1,7 +1,0 @@
-{% layout none %}
-(function () {
-    if(typeof SMARTOFFER==='undefined') SMARTOFFER={};
-    var cic=[];
-    {% for item in cart.items %}{%if item.product.collections%}{% capture results %}[{% for collection in item.product.collections %}{{ collection.id | json }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}cic[{{item.id}}]={{results}};{%endif%}{% endfor %}
-    SMARTOFFER.cart_item_collection = cic;
-})();
