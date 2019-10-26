@@ -119,6 +119,7 @@
       },
       "1478026923193": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "size": "large",
           "background_color": "#9f927f",
@@ -220,10 +221,10 @@
       "1486649811524": {
         "type": "featured-product",
         "settings": {
-          "featured_product": "new-queen-bitch-red-lips-novelty-colour-changing-11oz-mug-bb11w",
+          "featured_product": "2019-new-watches-men-luxury-brand-lige-chronograph-men-sports-watches-waterproof-full-steel-quartz-mens-watch-relogio-masculino",
           "layout": "square",
           "image_size": "cover",
-          "background_color": "#6e9ee1",
+          "background_color": "#143667",
           "show_quantity_selector": true,
           "show_variant_labels": true,
           "show_vendor": true,
@@ -258,7 +259,7 @@
       "1569992687371": {
         "type": "featured-product",
         "settings": {
-          "featured_product": "yanluu-stainless-steel-18k-gold-plated-bitch-words-necklace-18inch",
+          "featured_product": "",
           "layout": "square",
           "image_size": "cover",
           "background_color": "#000000",
@@ -272,7 +273,7 @@
       "1569992962182": {
         "type": "featured-product",
         "settings": {
-          "featured_product": "good-morning-you-sexy-bitch-by-inkponyart-coffee-mug-tea-cup-great-gift",
+          "featured_product": "",
           "layout": "square",
           "image_size": "contain",
           "background_color": "transparent",
