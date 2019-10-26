@@ -243,7 +243,6 @@
       },
       "1569905819743": {
         "type": "featured-product",
-        "disabled": true,
         "settings": {
           "featured_product": "autumn-new-men-hoodies-fleece-sweater-pullover-sweatshirt-mens-3d-dallas-cowboys-football-team-print-hoodie-men-couple-sweater",
           "layout": "square",
@@ -259,7 +258,7 @@
       "1569992687371": {
         "type": "featured-product",
         "settings": {
-          "featured_product": "",
+          "featured_product": "2019-nipsey-hussle-american-leisure-3d-digital-hat-guard-couple-hoodies-women-men",
           "layout": "square",
           "image_size": "cover",
           "background_color": "#000000",
@@ -273,7 +272,7 @@
       "1569992962182": {
         "type": "featured-product",
         "settings": {
-          "featured_product": "",
+          "featured_product": "curren-new-fashion-mens-watches-with-stainless-steel-top-brand-luxury-sports-chronograph-quartz-watch-men-relogio-masculino",
           "layout": "square",
           "image_size": "contain",
           "background_color": "transparent",
