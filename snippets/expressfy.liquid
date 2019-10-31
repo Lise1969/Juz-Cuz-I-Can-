@@ -1,0 +1,45 @@
+<input id="expressfy_affiliate" data-id="{{product.id}}" type="hidden">
+<script>
+    if (document.querySelector('#expressfy_affiliate')) {
+        var productId = document.querySelector('#expressfy_affiliate').getAttribute('data-id');
+        fetch('https://app.expressfy.com/dashboard/products/get-link?productId='+productId, {
+            method: 'POST',
+            mode: 'cors', // no-cors, cors, *same-origin
+            credentials: 'omit', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+            .then(response => response.json())
+            .then(response => {
+                if (response.success == true) {
+                    let url = response.link;
+                    let form = document.querySelector('form[action="cart/add"]');
+                    if (!form) {
+                        form = document.querySelector('form[action="/cart/add"]');
+                    }
+                    let addToCart = document.querySelector('#product-add-to-cart');
+
+                    if (!addToCart) {
+                        addToCart = document.querySelector('#AddToCart');
+                    }
+                    let interval = setInterval(function () {
+                        let paymentButton = document.querySelector('.shopify-payment-button');
+                        if (paymentButton && paymentButton.outerHTML) {
+                            clearInterval(interval);
+                            paymentButton.outerHTML = '';
+                        }
+                    }, 1000)
+
+                    if (addToCart) {
+                        let html = `
+                            <a href="${url}" target="_blank" class="btn btn product-single__cart-submit btn--secondary" >
+                                View on Aliexpress
+                            </a>`;
+                        addToCart.outerHTML = html;
+                    }
+                }
+            });
+
+    }
+</script>
