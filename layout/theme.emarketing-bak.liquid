@@ -90,9 +90,6 @@
 
       {{ 'paymentfont.scss.css' | asset_url | stylesheet_tag }}
     
-<!--emarketing-tags-start-->
-{% include 'emarketing' %}
-<!--emarketing-tags-end-->
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{% if request.page_type != blank %}{{ request.page_type | handle }}{% else %}none{% endif %} data-animations">

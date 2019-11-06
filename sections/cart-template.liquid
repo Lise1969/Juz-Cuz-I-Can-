@@ -112,11 +112,11 @@
                 <div data-cart-item-price-container>
                   {%- if item.original_price != item.final_price -%}
                     <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-                    <del class="cart-item__original-price">{{ item.original_price | money }}</del>
+                    <del class="cart-item__original-price"><div class="un-line-item-unit-price" data-id="{{ item.key }}">{{ item.original_price | money }}</div></del>
                     <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
                     <span class="order-discount cart-item__price">{{ item.final_price | money }}</span>
                   {%- else -%}
-                    <span class="cart-item__original-price cart-item__price">{{ item.original_price | money }}</span>
+                    <span class="cart-item__original-price cart-item__price"><div class="un-line-item-unit-price" data-id="{{ item.key }}">{{ item.original_price | money }}</div></span>
                   {%- endif -%}
                   {%- if item.variant.available and item.variant.unit_price_measurement -%}
                     {% include 'product-unit-price', variant: item.variant, available: item.variant.available %}
@@ -153,11 +153,11 @@
               <div data-cart-item-price-container>
                 {%- if item.original_price != item.final_price -%}
                   <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-                  <del class="cart-item__original-price">{{ item.original_price | money }}</del>
+                  <del class="cart-item__original-price"><div class="un-line-item-unit-price" data-id="{{ item.key }}">{{ item.original_price | money }}</div></del>
                   <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
                   <span class="order-discount cart-item__price">{{ item.final_price | money }}</span>
                 {%- else -%}
-                  <span class="cart-item__original-price cart-item__price">{{ item.original_price | money }}</span>
+                  <span class="cart-item__original-price cart-item__price"><div class="un-line-item-unit-price" data-id="{{ item.key }}">{{ item.original_price | money }}</div></span>
                 {%- endif -%}
                 {%- if item.variant.available and item.variant.unit_price_measurement -%}
                   {% include 'product-unit-price', variant: item.variant, available: item.variant.available %}
@@ -185,11 +185,11 @@
               <div data-cart-item-line-price-container>
                 {%- if item.original_line_price != item.final_line_price -%}
                   <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-                  <del class="cart-item__original-price">{{ item.original_line_price | money }}</del>
+                  <del class="cart-item__original-price"><div class="un-line-item-total" data-id="{{ item.key }}">{{ item.original_line_price | money }}</div></del>
                   <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
                   <span class="order-discount cart-item__price">{{ item.final_line_price | money }}</span>
                 {%- else -%}
-                  <span class="cart-item__original-price cart-item__price">{{ item.original_line_price | money }}</span>
+                  <span class="cart-item__original-price cart-item__price"><div class="un-line-item-total" data-id="{{ item.key }}">{{ item.original_line_price | money }}</div></span>
                 {%- endif -%}
               </div>
             </td>
