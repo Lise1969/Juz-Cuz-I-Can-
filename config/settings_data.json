@@ -7,9 +7,9 @@
     "color_footer_text": "#4a4a4a",
     "color_button_text": "#ffffff",
     "color_header_bg": "#fff",
-    "color_footer_bg": "#e0e5ea",
-    "color_main_bg": "#c4cdd7",
-    "color_secondary_bg": "#2b447e",
+    "color_footer_bg": "#eae7e0",
+    "color_main_bg": "#faf9f6",
+    "color_secondary_bg": "#f4f1ec",
     "color_product_cards": "#fff",
     "color_form_elements": "#fff",
     "color_cart_flag": "#eb4f47",
@@ -42,8 +42,8 @@
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#1990c6",
-    "checkout_button_color": "#1990c6",
+    "checkout_accent_color": "#1990C6",
+    "checkout_button_color": "#1990C6",
     "checkout_error_color": "#ff6d6d",
     "logo_max_height": "15",
     "sections": {
@@ -161,7 +161,7 @@
           "1486649146314": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/international-money.jpg",
+              "image": "shopify:\/\/shop_images\/Blue_Silk.jpg",
               "alignment": "center center",
               "title": "A Queen Knows her WORTH",
               "button": "About",
@@ -210,8 +210,8 @@
           "1569905058097"
         ],
         "settings": {
-          "slider_height": "adapt",
-          "center_cta": false,
+          "slider_height": "full",
+          "center_cta": true,
           "show_overlay": true,
           "overlay_color": "#eef0ed",
           "overlay_text": "#296f1b",
