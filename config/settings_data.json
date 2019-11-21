@@ -59,13 +59,13 @@
           "primary_navigation": "main-menu",
           "secondary_navigation": "footer",
           "show_social_icons": true,
-          "show_announcement": false,
+          "show_announcement": true,
           "home_page_only": true,
-          "announcement_text": "",
-          "announcement_link": "",
-          "announcement_icon": "none",
-          "announcement_color_bg": "#7796a8",
-          "announcement_color_text": "#fff"
+          "announcement_text": "Holiday Gift Sale",
+          "announcement_link": "shopify:\/\/collections\/womens-boots",
+          "announcement_icon": "pricetag",
+          "announcement_color_bg": "#659ab9",
+          "announcement_color_text": "#220a79"
         }
       },
       "footer": {
@@ -115,24 +115,6 @@
           "grid_style": "collage",
           "show_spacing": false,
           "show_vendor": true
-        }
-      },
-      "1478026923193": {
-        "type": "feature-row",
-        "disabled": true,
-        "settings": {
-          "size": "large",
-          "background_color": "#9f927f",
-          "image": "shopify:\/\/shop_images\/Juz_Cuz_I_Can_Cover_Text.jpg",
-          "image_crop": "circle",
-          "alignment": "top center",
-          "title": "In Horor of all Queens",
-          "text": "<p>A change of mindset regarding self worth. The social value of women and that view structures our personal lifestyle.<\/p>",
-          "use_second_button": true,
-          "button_label": "Talk to me",
-          "button_link": "http:\/\/Blog.queensbadgeofhonor.juzcuzican.store.juzcuzican.com",
-          "desktop_layout": "left",
-          "mobile_layout": "top"
         }
       },
       "product-template": {
@@ -309,7 +291,6 @@
       }
     },
     "content_for_index": [
-      "1478026923193",
       "1476381402840",
       "1486649811524",
       "1569905819743",
