@@ -163,8 +163,8 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Blue_Silk.jpg",
               "alignment": "center center",
-              "title": "A Queen Knows her WORTH",
-              "button": "About",
+              "title": "BLACK FRIDAY SALES",
+              "button": "SPECIAL GIFTS FOR SPECIAL PEOPLE",
               "cta": "View more",
               "cta_link": ""
             }
@@ -214,7 +214,7 @@
           "center_cta": true,
           "show_overlay": true,
           "overlay_color": "#eef0ed",
-          "overlay_text": "#296f1b",
+          "overlay_text": "#12588d",
           "overlay_opacity": 44
         }
       },
