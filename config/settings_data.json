@@ -31,19 +31,19 @@
     "social_youtube_link": "UCRkTZLDrKDm0vmgYdT_uFhA",
     "social_vimeo_link": "",
     "favicon": "",
-    "checkout_header_image": "",
+    "checkout_header_image": "shopify:\/\/shop_images\/Blue_Silk.jpg",
     "checkout_logo_image": "",
     "checkout_logo_position": "left",
     "checkout_logo_size": "medium",
-    "checkout_body_background_image": "",
-    "checkout_body_background_color": "#fff",
+    "checkout_body_background_image": "shopify:\/\/shop_images\/Blue_Silk.jpg",
+    "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#1990c6",
-    "checkout_button_color": "#1990c6",
+    "checkout_accent_color": "#1990C6",
+    "checkout_button_color": "#1990C6",
     "checkout_error_color": "#ff6d6d",
     "logo_max_height": "15",
     "sections": {
@@ -88,19 +88,6 @@
           "show_newsletter": true,
           "newsletter_heading": "Sign up for updates",
           "newsletter_subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>"
-        }
-      },
-      "1476381402840": {
-        "type": "video",
-        "settings": {
-          "cover_text": "FUCK FAKE FRIENDS: by Bebe ft. G-Eazy",
-          "video_url": "https:\/\/youtu.be\/jz1Ga7GG0Uk",
-          "cover_image": "shopify:\/\/shop_images\/laying-on-the-beach.jpg",
-          "cover_image_position": "center center",
-          "show_overlay": true,
-          "overlay_color": "#000000",
-          "overlay_text": "#ffffff",
-          "overlay_opacity": 60
         }
       },
       "collection-template": {
@@ -223,34 +210,6 @@
           "show_share_buttons": true
         }
       },
-      "1569905819743": {
-        "type": "featured-product",
-        "settings": {
-          "featured_product": "autumn-new-men-hoodies-fleece-sweater-pullover-sweatshirt-mens-3d-dallas-cowboys-football-team-print-hoodie-men-couple-sweater",
-          "layout": "square",
-          "image_size": "cover",
-          "background_color": "transparent",
-          "show_quantity_selector": true,
-          "show_variant_labels": true,
-          "show_vendor": true,
-          "enable_payment_button": true,
-          "show_share_buttons": true
-        }
-      },
-      "1569992687371": {
-        "type": "featured-product",
-        "settings": {
-          "featured_product": "2019-nipsey-hussle-american-leisure-3d-digital-hat-guard-couple-hoodies-women-men",
-          "layout": "square",
-          "image_size": "cover",
-          "background_color": "#000000",
-          "show_quantity_selector": true,
-          "show_variant_labels": true,
-          "show_vendor": true,
-          "enable_payment_button": true,
-          "show_share_buttons": true
-        }
-      },
       "1569992962182": {
         "type": "featured-product",
         "settings": {
@@ -274,29 +233,70 @@
           "show_vendor": true
         }
       },
-      "1570669558807": {
-        "type": "featured-blog",
+      "1574328166191": {
+        "type": "featured-product",
         "settings": {
-          "title": "Blog",
-          "blog": "where-are-all-my-b-i-t-c-hs-at",
-          "post_limit": 3,
-          "grid_style": "collage",
-          "blog_show_date": true,
-          "blog_show_author": true,
-          "blog_show_image": true,
-          "blog_show_excerpt": true,
-          "show_view_all": false,
-          "use_second_button": false
+          "featured_product": "12-grids-watch-case-jewelry-storage-organizer",
+          "layout": "full",
+          "image_size": "contain",
+          "background_color": "rgba(0,0,0,0)",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": true,
+          "enable_payment_button": true,
+          "show_share_buttons": true
+        }
+      },
+      "1574328292638": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "2018-new-style-backpack-womens-versatile-stylish-large-volume-printed-sling-bag-crossbody-bag-casual-travel-bag-students-bag-w",
+          "layout": "full",
+          "image_size": "contain",
+          "background_color": "transparent",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true
+        }
+      },
+      "1574328366737": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "1723-lz-best-price-high-quality-women-ladies-single-handbag-tote-shoulder-backpack-bag-purse-wallet",
+          "layout": "square",
+          "image_size": "cover",
+          "background_color": "transparent",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": true,
+          "enable_payment_button": true,
+          "show_share_buttons": true
+        }
+      },
+      "1574328823564": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "b22-hot-sale-new-arrive-men-canvas-bag-vintage-messenger-bag-brand-business-casual-travel-shoulder-bag-laptop-bag-male-bolsa",
+          "layout": "square",
+          "image_size": "cover",
+          "background_color": "transparent",
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true
         }
       }
     },
     "content_for_index": [
-      "1476381402840",
       "1486649811524",
-      "1569905819743",
-      "1569992687371",
       "1569992962182",
-      "1570669558807"
+      "1574328166191",
+      "1574328292638",
+      "1574328366737",
+      "1574328823564"
     ]
   },
   "presets": {
