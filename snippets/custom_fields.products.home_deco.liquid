@@ -1,0 +1,17 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/juz-cuz-i-can-badge-of-honor-for-queens.myshopify.com/products/configure/107987/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["home_deco"] != blank %}
+  <div class="custom-field custom-field__home-deco custom-field__type--checkbox">
+    <h3 class="custom-field--title">Home Decor/ Furnitue</h3>
+    <div class="custom-field--value">
+      {% if product.metafields.custom_fields["home_deco"] == 1 %}
+        TRUE
+      {% else %}
+        FALSE
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
