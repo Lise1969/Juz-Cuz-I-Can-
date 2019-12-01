@@ -42,16 +42,16 @@
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#1990C6",
-    "checkout_button_color": "#1990C6",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#1990c6",
     "checkout_error_color": "#ff6d6d",
     "logo_max_height": "15",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
-          "icon": "cart",
-          "logo": "shopify:\/\/shop_images\/Blue_Rose.jpg",
+          "icon": "bag",
+          "logo": "",
           "logo_max_height": "72",
           "enable_transparent": true,
           "transparent_logo": "shopify:\/\/shop_images\/Built_on_Self_Success.jpg",
@@ -132,59 +132,23 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Blue_Silk.jpg",
               "alignment": "center center",
-              "title": "BLACK FRIDAY SALES",
-              "button": "SPECIAL GIFTS FOR SPECIAL PEOPLE",
-              "cta": "View more",
-              "cta_link": ""
-            }
-          },
-          "1486649185448": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "alignment": "center center",
-              "title": "What is the Queens Badge of Honor?",
-              "button": "The Word",
-              "cta": "View more",
-              "cta_link": ""
-            }
-          },
-          "1486649267624": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "alignment": "center center",
-              "title": "Quotes and Art",
-              "button": "Art",
-              "cta": "View more",
-              "cta_link": ""
-            }
-          },
-          "1569905058097": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "alignment": "center center",
-              "title": "Jewelry",
-              "button": "Bling Bling",
-              "cta": "View more",
+              "title": "Holiday Gifts Ideas",
+              "button": "",
+              "cta": "",
               "cta_link": ""
             }
           }
         },
         "block_order": [
-          "1486649146314",
-          "1486649185448",
-          "1486649267624",
-          "1569905058097"
+          "1486649146314"
         ],
         "settings": {
           "slider_height": "full",
           "center_cta": true,
           "show_overlay": true,
           "overlay_color": "#eef0ed",
-          "overlay_text": "#12588d",
-          "overlay_opacity": 44
+          "overlay_text": "#e8f2fc",
+          "overlay_opacity": 4
         }
       },
       "1486649811524": {

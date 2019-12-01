@@ -105,7 +105,7 @@
   <div class="main-content{% if request.page_type == blank %} main-content--no-template{% endif %}" data-drawer-push>
     <div class="main-content__wrapper">
       <main class="content-for-layout" id="MainContent" role="main">
-        {{ content_for_layout }}{% include 'vnavs' %}
+        {{ content_for_layout }}
       </main>
 
       {% section 'footer' %}
