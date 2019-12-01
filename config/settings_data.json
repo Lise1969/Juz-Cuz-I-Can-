@@ -252,6 +252,28 @@
           "enable_payment_button": true,
           "show_share_buttons": true
         }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1575188441029": {
+            "type": "collection",
+            "settings": {
+              "collection": "2019-smart-watchs"
+            }
+          }
+        },
+        "block_order": [
+          "1575188441029"
+        ],
+        "settings": {
+          "display_type": "all",
+          "grid_style": "collage",
+          "products": "2",
+          "sort": "alphabetical",
+          "show_spacing": true,
+          "show_description": true
+        }
       }
     },
     "content_for_index": [
