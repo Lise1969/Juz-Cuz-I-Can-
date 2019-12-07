@@ -95,10 +95,10 @@
         "settings": {
           "products": "2",
           "rows": "6",
-          "product_tags_enable": false,
+          "product_tags_enable": true,
           "product_sorting_enable": false,
-          "collection_hero_image": false,
-          "collection_hero_image_parallax": false,
+          "collection_hero_image": true,
+          "collection_hero_image_parallax": true,
           "grid_style": "collage",
           "show_spacing": false,
           "show_vendor": true
@@ -259,7 +259,7 @@
           "1575188441029": {
             "type": "collection",
             "settings": {
-              "collection": "2019-smart-watchs"
+              "collection": ""
             }
           }
         },
@@ -274,6 +274,38 @@
           "show_spacing": true,
           "show_description": true
         }
+      },
+      "1575689282636": {
+        "type": "collection-list",
+        "blocks": {
+          "1575689282636-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "womens-fashion-dresses"
+            }
+          },
+          "1575689282636-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "shoes"
+            }
+          },
+          "1575689282636-2": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1575689282636-0",
+          "1575689282636-1",
+          "1575689282636-2"
+        ],
+        "settings": {
+          "title": "Collection list",
+          "grid": 3
+        }
       }
     },
     "content_for_index": [
@@ -282,7 +314,8 @@
       "1574328166191",
       "1574328292638",
       "1574328366737",
-      "1574328823564"
+      "1574328823564",
+      "1575689282636"
     ]
   },
   "presets": {
