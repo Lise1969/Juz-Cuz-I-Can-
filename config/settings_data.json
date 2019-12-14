@@ -61,7 +61,7 @@
           "show_social_icons": true,
           "show_announcement": true,
           "home_page_only": true,
-          "announcement_text": "Holiday Gift Sale",
+          "announcement_text": "",
           "announcement_link": "shopify:\/\/collections\/womens-boots",
           "announcement_icon": "pricetag",
           "announcement_color_bg": "#659ab9",
@@ -130,9 +130,9 @@
           "1486649146314": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Blue_Silk.jpg",
+              "image": "shopify:\/\/shop_images\/woman-in-fur-under-neon.jpg",
               "alignment": "center center",
-              "title": "Holiday Gifts Ideas",
+              "title": "",
               "button": "",
               "cta": "",
               "cta_link": ""
@@ -147,8 +147,8 @@
           "center_cta": true,
           "show_overlay": true,
           "overlay_color": "#eef0ed",
-          "overlay_text": "#e8f2fc",
-          "overlay_opacity": 4
+          "overlay_text": "#e81445",
+          "overlay_opacity": 14
         }
       },
       "1486649811524": {
