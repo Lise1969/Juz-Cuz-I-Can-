@@ -1,0 +1,24 @@
+{% comment %}
+BookThatApp Widget Loader
+== Version: 1.0 ==
+{% endcomment %}
+
+<script src="//www.bookthatapp.com/sdk/v1/js/bta-in-shopify.min.js" defer></script>
+
+<script>
+    window.BtaConfig = JSON.parse('{{ shop.metafields.bookthatapp.config }}' || '{}')
+
+    window.addEventListener('DOMContentLoaded', function() {
+        window.BtaSdk = BookThatApp.init('{{ shop.metafields.bookthatapp.api_token }}')
+
+        BtaWidgetLoader.render({
+            account: '{{ shop.permanent_domain | split:'.' | first }}',
+            externalId: '{{ product.id }}',
+            cart: {{cart | json}},
+            shopConfig: BtaConfig,
+            onSubmit: function(reservation) {
+                BtaConvertReservationToCart.addToCart(reservation, BtaConfig)
+            }
+        })
+    })
+</script>

@@ -94,6 +94,8 @@
 <!--emarketing-tags-start-->
 {% include 'emarketing' %}
 <!--emarketing-tags-end-->
+
+  {% include 'bookthatapp-widgets' %}
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{% if request.page_type != blank %}{{ request.page_type | handle }}{% else %}none{% endif %} data-animations">
