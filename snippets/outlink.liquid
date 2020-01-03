@@ -1,0 +1,354 @@
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>        
+{% assign enable_outlink = false %}
+
+{% if product.metafields.outlink["isOutlink"] == 1 %}		
+	{% assign enable_outlink = true %}
+	{% assign outlink_url = product.metafields.outlink["url"] %}   
+        {% assign outlink_button_text = product.metafields.outlink["linktext"] %}
+        
+{% endif %}            
+
+{% if enable_outlink == true %}
+
+{% if product.metafields.outlink["isoutpage"] == 1 and 0 == 1 %}	
+    {% assign outlink_url = "https://outpage.co/"| append: product.id  %}   
+{%endif%}
+
+
+
+<button id="outlink_button" type="button" style="display:none;" name="outlink_button" class="btn" 
+        onclick="OutlinkButtonClick()">
+  <span id="outlink_button_span">{{outlink_button_text}}</span>
+</button>
+
+<script>
+  
+var OutlinkWrapper = document.getElementById("outlink_button");
+setTimeout(function waitOutlinkWrapper() {
+    if (document.body.contains(OutlinkWrapper)) {
+        OutlinkInit();
+    } else {
+        setTimeout(waitOutlinkWrapper, 100);
+    }
+}, 100);
+        
+function OutlinkInit(){    
+   if({{enable_outlink}} === true)
+    {
+      OutlinkShowButton();
+      outlinkButtonBasedOnVariantion();
+      $(".single-option-selector").change(function(){
+        outlinkButtonBasedOnVariantion();
+      });
+      
+      $(document).on("click", ".swatch-element", function() {
+        setTimeout(function () {
+        outlinkButtonBasedOnVariantion();
+        },  500);
+      });
+     
+      $(document).on("change", "#data-product-option-0", function() {
+        outlinkButtonBasedOnVariantion();
+      });
+
+    }
+}  
+
+    
+function OutlinkShowButton()
+{
+
+  var Outlinkaddtocartform = document.querySelector("form[action='/cart/add']");
+  var Outlinkaddtocartbutton = Outlinkaddtocartform.querySelector("[type='submit']");
+  var Outlinklinkbutton = document.getElementById("outlink_button"); 
+  
+
+
+
+//code for special themes
+  if((Outlinkaddtocartbutton === undefined) || (Outlinkaddtocartbutton === null) || (Outlinkaddtocartbutton === ""))
+  {    
+    Outlinkaddtocartbutton = document.getElementById("add-to-cart");    
+    if((Outlinkaddtocartbutton === undefined) || (Outlinkaddtocartbutton === null) || (Outlinkaddtocartbutton === ""))
+    {
+        Outlinkaddtocartbutton = document.getElementById("product-add-to-cart");
+    }
+    else
+    {
+        Outlinkaddtocartbutton.classList.remove("add-to-cart");    
+    }
+  }
+  
+  Outlinklinkbutton.className += " " + Outlinkaddtocartbutton.classList;
+  
+  Outlinkaddtocartbutton.style.display = "none";  
+  Outlinklinkbutton.style.display = "block";  
+  
+    var shopifypaymentbutton = document.getElementsByClassName("shopify-payment-button");
+       while(shopifypaymentbutton.length > 0){
+           shopifypaymentbutton[0].parentNode.removeChild(shopifypaymentbutton[0]);
+       }
+   
+    setInterval(function () {
+        Outlinkaddtocartbutton.style.display = "none";  
+        Outlinklinkbutton.style.display = "block";                
+    }, 4000);
+}
+
+function outlinkButtonBasedOnVariantion(){
+    
+var outlink_url = "{{outlink_url}}";
+var outlink_button_text =  "{{outlink_button_text}}";
+$("#outlink_button").text(outlink_button_text);
+$("#outlink_button").data( "outlink_url", outlink_url );
+
+var variantjson = '{{product.metafields.outlink["variantjson"] }}';
+if(variantjson != "") {
+    variantjson = jQuery.parseJSON(variantjson);
+}else{
+    return;
+} 
+
+var found = 0;
+var fvalue = [];
+var foptionMap = [];
+var nvalue = [];
+var noptionMap = [];
+var available = false;
+var optionMap = [];
+
+    if(optionMap.length == 0){
+
+                    
+        $(".ProductForm__SelectedValue").each(function(key) {
+                optionMap[key] = $(this).text();
+
+
+            });
+    } 
+
+
+    if(optionMap.length == 0){
+
+                    
+        $(".form-vertical .single-option-selector").each(function(key) {
+                optionMap[key] = $(this).val();
+
+
+            });
+    } 
+
+
+    if($(".stickyform").length > 0){ 
+
+        $(".stickyform .single-option-selector").each(function(key) {
+                $(this).val(optionMap[key]);
+
+
+            });
+
+    }
+
+    if(optionMap.length == 0){
+
+                    
+        $(".show_block .selector-wrapper .single-option-selector").each(function(key) {
+                optionMap[key] = $(this).val();
+
+            });
+    } 
+
+    if(optionMap.length == 0){ 
+
+        $(".swatch input:checked").each(function(key) { 
+        			optionMap[key] = $(this).val();
+                });
+                
+    }
+    if(optionMap.length == 0){ 
+            
+        $(".swatches__option input:checked").each(function(key) { 
+              optionMap[key] = $(this).val();
+          }); 
+
+      }             
+                
+    if(optionMap.length == 0){
+        $(".selector-wrapper .single-option-selector").each(function(key) {
+                optionMap[key] = $(this).val();
+    
+            });
+    }            
+
+    		if(optionMap.length == 0){
+              $(".single-option-selector").each(function(key) {
+              optionMap[key] = $(this).val();
+            
+              });
+      		}
+
+    if(optionMap.length == 0){
+       $(".single-option-selector__radio").each(function(key) {
+        optionMap[key] = $(this).val();
+      
+        });
+    }
+
+    if(optionMap.length == 0){
+      $(".swatch-element input[type='radio']").each(function(key) {
+       optionMap[key] = $(this).val();
+     
+       });
+   }
+
+   if(optionMap.length == 0){
+    $("#data-product-option-0").each(function(key) {
+     optionMap[key] = $(this).val();
+   
+     });
+
+
+    if(optionMap.length == 0){ 
+  
+        $(".single-option-selector__radio").each(function(key) {
+                  optionMap[key] = $(this).val();
+                
+        });
+    } 
+    
+    if(optionMap.length == 0){
+        $(".swatch input[type='radio']:checked").each(function(key) {
+          optionMap[Key] = $(this).val();
+          
+        });
+    }
+
+ }
+
+
+
+
+  
+  var product = {{ product | json }};
+  var variants = product.variants;
+  
+  variants.forEach(function(value, index) {
+  if(!found){
+  if(JSON.stringify(value.options) == JSON.stringify(optionMap)) {
+        found = 1;
+         fvalue = value;
+        foptionMap = optionMap;
+    
+  }else if(value.options.toString() == $(".single-option-selector").val()) {
+                found = 1;
+                     fvalue = value;
+                    foptionMap = optionMap;
+  
+  }else if(value.options.toString() == $(".single-option-selector__radio:checked").val()) {
+                found = 1;
+                     fvalue = value;
+                    foptionMap = optionMap;
+   }else if(value.options.toString() == $(".swatch-element input[type='radio']:checked").val()) {
+
+        if($(".single-option-selector").length == 0){
+            found = 1;
+            fvalue = value;
+            foptionMap = optionMap;
+        }    
+
+    } else if(value.options.toString() == $("#data-product-option-0").val()) {
+        found = 1;
+        fvalue = value;
+        foptionMap = optionMap;
+    } else if(value.options.toString() == $(".single-option-selector__radio:checked").val()) {
+        found = 1;
+             fvalue = value;
+            foptionMap = optionMap;
+
+    } else if(value.options.toString() == $(".swatch input[type='radio']:checked").val()) {
+        found = 1;
+             fvalue = value;
+            foptionMap = optionMap;
+    } else {
+ 
+    nvalue = value;
+    noptionMap = value.options;
+   
+  }
+
+  if (optionMap.length === 0) {
+  
+
+}
+}
+});
+
+
+if(found == 1 ) {
+    //console.log(variantjson[fvalue.id])
+    if(variantjson[fvalue.id] != undefined && {{ product.metafields.outlink["isoutpage"] }} != 1)
+    {   
+        if(variantjson[fvalue.id].button_text != "" && variantjson[fvalue.id].button_text != null){
+            $("#outlink_button").text(variantjson[fvalue.id].button_text);
+        }
+        
+        $("#outlink_button").data( "outlink_url", variantjson[fvalue.id].external_url );
+
+        setTimeout(function() {
+            $("#outlink_button").data( "outlink_url", variantjson[fvalue.id].external_url );
+
+        },  500); 
+
+        
+    }
+}
+  
+
+
+}
+function OutlinkButtonClick()
+{  	
+
+   if($( "#outlink_button" ).data( "outlink_url") != "") {
+    outlink_url = $( "#outlink_button" ).data( "outlink_url");
+    }else {
+        outlink_url = "{{outlink_url}}";
+    } 
+  
+    window.open(outlink_url);
+  
+    //if analytics is ON
+      {% if shop.metafields.outlink["isganalyticson"] == 1 %}
+
+          if(typeof ga !== "undefined") {
+               
+            {% if product.metafields.outlink["isoutpage"] == 1 and 0 == 1 %}	
+                ga("send", "event", { eventCategory: "Outlink", eventAction: "View", eventLabel:outlink_url });
+            {% else %}
+                ga("send", "event", { eventCategory: "Outlink", eventAction: "Click", eventLabel:outlink_url });
+            {%endif%}
+
+            
+            
+            }                  
+       {% endif %}
+        {% if shop.metafields.outlink["isfacebookpixel"] == 1 %}
+
+             if(typeof fbq !== "undefined") {
+                {% if product.metafields.outlink["isoutpage"] == 1 and 0 == 1 %}	
+                fbq("trackCustom", "OutlinkView", {MultipleLinkPage: outlink_url});
+                {% else %}
+                fbq("trackCustom", "OutlinkClick", {ExternalLink: outlink_url});
+                {%endif%}
+              }
+            
+              
+                          
+       {% endif %}         
+}  
+  
+</script>
+  
+{% endif %}
