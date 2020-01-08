@@ -96,6 +96,7 @@
 <!--emarketing-tags-end-->
 
   {% include 'bookthatapp-widgets' %}
+{% include 'booster-common' %}
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{% if request.page_type != blank %}{{ request.page_type | handle }}{% else %}none{% endif %} data-animations">
@@ -120,5 +121,6 @@
   </ul>
 {% include 'cjpod' %}
 {% render 'upsell-now', customer: customer, product: product, template: template, cart: cart %}
-  {% comment %}This is for Badge Master By Hulkapps{% endcomment %} {% include 'hulkcode_trustbadge' %}</body>
+  {% comment %}This is for Badge Master By Hulkapps{% endcomment %} {% include 'hulkcode_trustbadge' %}{% include 'booster-message' %}
+</body>
 </html>
