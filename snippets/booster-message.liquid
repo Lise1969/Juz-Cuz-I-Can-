@@ -209,10 +209,12 @@
       var addToCartBtn = (e.target);
       window.baMsg.active_atc = addToCartBtn;
       addToCartBtn.classList.add('ba-click-ready');
-      try {
-        handleAtcClick(e)
-      } catch(err){
-        console.log(err);
+      if (window.baMsg.fb_active && window.baMsg.fb_page_id){
+        try {
+          handleAtcClick(e)
+        } catch(err){
+          console.log(err);
+        }
       }
     });
   }
@@ -297,7 +299,7 @@ documentReady(function() {
       "text_placement": "above",
       "background_color": "#fff",
       "icon_background_color": "#f7f7f7",
-      "color":"#000",
+      "color": "#000",
       "checked_color": "#000",
       "border_color":"#e5e5e5",
       "font_size":14,
@@ -1122,19 +1124,19 @@ function boosterFbAtcModal() {
       if (window.baMsg.sms_active){
         new boosterSMSAtcModal().generate({
            "active":0,
-           "title":"Join our VIP Text Club",
-           "paragraph":"Sign up and gain access to new products, exclusive deals, and discounts before anybody else!",
-           "no_thanks_text":"No thanks",
-           "close_button":"0",
+           "title":"",
+           "paragraph":"",
+           "no_thanks_text":"",
+           "close_button":"",
            "plugin_type":"send_to_messenger",
-           "button_cta":"Subscribe",
+           "button_cta":"",
            "button_cta_color":"",
-           "header_bg_color":"#0d47a1",
-           "body_bg_color":"#fff",
-           "header_text_color":"#626974",
-           "paragraph_text_color":"#222222",
-           "no_thanks_text_color":"#626974",
-           "disclaimer":"By subscribing via text you agree to receive recurring automated marketing messages at the phone number provided. Reply STOP to unsubscribe. Msg &amp; Data rates may apply. View Privacy Policy &amp; ToS for more info"
+           "header_bg_color":"",
+           "body_bg_color":"",
+           "header_text_color":"",
+           "paragraph_text_color":"",
+           "no_thanks_text_color":"",
+           "disclaimer":""
         });
       }
 
